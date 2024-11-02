@@ -50,54 +50,151 @@
 
 
 // --------DOM traversal--------------
-const firstChild = document.getElementById('first');
+// const firstChild = document.getElementById('first');
         
 
-const parent = firstChild.parentNode;
-console.log('Parent:', parent.id); 
+// const parent = firstChild.parentNode;
+// console.log('Parent:', parent.id); 
 
 
-const secondChild = firstChild.nextElementSibling;
-console.log('Next Sibling:', secondChild.id); 
-const lastChild = parent.lastElementChild;
-console.log('Last Child:', lastChild.id); 
+// const secondChild = firstChild.nextElementSibling;
+// console.log('Next Sibling:', secondChild.id); 
+// const lastChild = parent.lastElementChild;
+// console.log('Last Child:', lastChild.id); 
 
-const thirdChild = lastChild.previousElementSibling;
-console.log('Previous Sibling:', thirdChild.id);
+// const thirdChild = lastChild.previousElementSibling;
+// console.log('Previous Sibling:', thirdChild.id);
 
 
 // -----------sort Array of ojects---------
-const people = [
-    { name: 'Alice', age: 25 },
-    { name: 'Bob', age: 30 },
-    { name: 'Charlie', age: 20 },
-  ];
+// const people = [
+//     { name: 'Alice', age: 25 },
+//     { name: 'Bob', age: 30 },
+//     { name: 'Charlie', age: 20 },
+//   ];
   
 
-  people.sort((a, b) => a.age - b.age);
-  console.log('Sorted by age (ascending):', people);
+//   people.sort((a, b) => a.age - b.age);
+//   console.log('Sorted by age (ascending):', people);
   
-  people.sort((a, b) => a.name.localeCompare(b.name));
-  console.log('Sorted by name (alphabetical):', people);
+//   people.sort((a, b) => a.name.localeCompare(b.name));
+//   console.log('Sorted by name (alphabetical):', people);
   
 
 //   ----------Filter Array of objects-----------
-const people1 = [
-    { name: 'Alice', age: 25, city: 'New York' },
-    { name: 'Bob', age: 30, city: 'Los Angeles' },
-    { name: 'Charlie', age: 20, city: 'New York' },
-    { name: 'David', age: 35, city: 'Chicago' },
-  ];
+// const people1 = [
+//     { name: 'Alice', age: 25, city: 'New York' },
+//     { name: 'Bob', age: 30, city: 'Los Angeles' },
+//     { name: 'Charlie', age: 20, city: 'New York' },
+//     { name: 'David', age: 35, city: 'Chicago' },
+//   ];
   
   
-  const adults = people1.filter(person => person.age >= 30);
-  console.log('Adults:', adults);
+//   const adults = people1.filter(person => person.age >= 30);
+//   console.log('Adults:', adults);
   
   
-  const newYorkers = people1.filter(person => person.city === 'New York');
-  console.log('New Yorkers:', newYorkers);
+//   const newYorkers = people1.filter(person => person.city === 'New York');
+//   console.log('New Yorkers:', newYorkers);
   
   
-  const youngNewYorkers = people1.filter(person => person.age < 30 && person.city === 'New York');
-  console.log('Young New Yorkers:', youngNewYorkers);
+//   const youngNewYorkers = people1.filter(person => person.age < 30 && person.city === 'New York');
+//   console.log('Young New Yorkers:', youngNewYorkers);
+ 
+
+// -------classes------
+class Vehicle {
+    constructor(make, model) {
+      this.make = make;
+      this.model = model;
+    }
   
+    info() {
+      return `${this.make} ${this.model}`;
+    }
+  }
+  
+  class Car extends Vehicle {
+    constructor(make, model, doors) {
+      super(make, model); 
+      this.doors = doors;
+    }
+  
+    carInfo() {
+      return `${this.info()} with ${this.doors} doors`;
+    }
+  }
+  
+  const myCar = new Car('Toyota', 'Camry', 4);
+  console.log(myCar.carInfo()); 
+  
+
+//   ---------Inheritence------------
+class Shape {
+    constructor(name) {
+      this.name = name;
+    }
+  
+    area() {
+      return 0; 
+    }
+  
+    info() {
+      return `This is a ${this.name}.`;
+    }
+  }
+  
+  class Rectangle extends Shape {
+    constructor(width, height) {
+      super('Rectangle');
+      this.width = width;
+      this.height = height;
+    }
+  
+    area() {
+      return this.width * this.height; 
+    }
+  }
+  
+  const rect = new Rectangle(10, 5);
+  console.log(rect.info()); 
+  console.log(`Area: ${rect.area()}`); 
+  
+
+//   --------memorization------------
+function memoize(fn) {
+    const cache = {};
+  
+    return function(...args) {
+      const key = JSON.stringify(args);
+  
+      if (cache[key]) {
+        console.log('Fetching from cache:', key);
+        return cache[key];
+      }
+  
+      const result = fn(...args);
+      cache[key] = result;
+      console.log('Calculating result:', key);
+      return result;
+    };
+  }
+  
+  function fibonacci(n) {
+    if (n <= 1) return n;
+    return fibonacci(n - 1) + fibonacci(n - 2);
+  }
+  
+  const memoizedFibonacci = memoize(fibonacci);
+  
+  console.log(memoizedFibonacci(10)); 
+  console.log(memoizedFibonacci(20)); 
+
+//   ------------Arrow Functions-------------
+const numbers = [1, 2, 3, 4, 5];
+
+const doubled = numbers.map(num => num * 2);
+console.log(doubled); 
+
+const evenNumbers = numbers.filter(num => num % 2 === 0);
+console.log(evenNumbers); 
