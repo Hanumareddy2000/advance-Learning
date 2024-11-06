@@ -202,125 +202,211 @@
 
 // -------------call Back Functions-----------
 
-function fetchData(callback) {
-  setTimeout(() => {
-      const data = { name: "John", age: 30 };
-      callback(data); 
-  }, 2000);
-}
+// function fetchData(callback) {
+//   setTimeout(() => {
+//       const data = { name: "John", age: 30 };
+//       callback(data); 
+//   }, 2000);
+// }
 
-function processData(data) {
-  console.log("Data received:", data);
-}
+// function processData(data) {
+//   console.log("Data received:", data);
+// }
 
-fetchData(processData);
+// fetchData(processData);
 
 // ----------call stack-------
-function greet(name) {
-  console.log("Hello, " + name);
-}
+// function greet(name) {
+//   console.log("Hello, " + name);
+// }
 
-function ask() {
-  const name = "Alice";
-  greet(name);
-  console.log("How are you, " + name + "?");
-}
+// function ask() {
+//   const name = "Alice";
+//   greet(name);
+//   console.log("How are you, " + name + "?");
+// }
 
-ask();
+// ask();
 
 
 // -----------Local Storage -------------
 
-localStorage.setItem('username', 'Alice');
+// localStorage.setItem('username', 'Alice');
 
-const username = localStorage.getItem('username');
-console.log(username); 
+// const username = localStorage.getItem('username');
+// console.log(username); 
 
-localStorage.removeItem('username');
+// localStorage.removeItem('username');
 
-localStorage.clear();
+// localStorage.clear();
 
 
 // ---------Session Storage-----------
 
-sessionStorage.setItem('sessionId', '12345');
+// sessionStorage.setItem('sessionId', '12345');
 
-const sessionId = sessionStorage.getItem('sessionId');
-console.log(sessionId);
+// const sessionId = sessionStorage.getItem('sessionId');
+// console.log(sessionId);
 
-sessionStorage.removeItem('sessionId');
+// sessionStorage.removeItem('sessionId');
 
-sessionStorage.clear();
+// sessionStorage.clear();
 
 // ---------sort Array of objects--------------
-const people = [
-  { name: "Alice", age: 25 },
-  { name: "Bob", age: 30 },
-  { name: "Charlie", age: 20 }
-];
+// const people = [
+//   { name: "Alice", age: 25 },
+//   { name: "Bob", age: 30 },
+//   { name: "Charlie", age: 20 }
+// ];
 
-people.sort((a, b) => a.age - b.age);
+// people.sort((a, b) => a.age - b.age);
 
-console.log("Sorted by age:", people);
+// console.log("Sorted by age:", people);
 
-people.sort((a, b) => a.name.localeCompare(b.name));
+// people.sort((a, b) => a.name.localeCompare(b.name));
 
-console.log("Sorted by name:", people);
+// console.log("Sorted by name:", people);
 
 
 // -----------Filter Array of objects-----------
-const people1 = [
-      { name: 'Alice', age: 25, city: 'New York' },
-      { name: 'Bob', age: 30, city: 'Los Angeles' },
-      { name: 'Charlie', age: 20, city: 'New York' },
-      { name: 'David', age: 35, city: 'Chicago' },
-    ];
+// const people1 = [
+//       { name: 'Alice', age: 25, city: 'New York' },
+//       { name: 'Bob', age: 30, city: 'Los Angeles' },
+//       { name: 'Charlie', age: 20, city: 'New York' },
+//       { name: 'David', age: 35, city: 'Chicago' },
+//     ];
     
     
-    const adults = people1.filter(person => person.age >= 30);
-    console.log('Adults:', adults);
+//     const adults = people1.filter(person => person.age >= 30);
+//     console.log('Adults:', adults);
     
     
-    const newYorkers = people1.filter(person => person.city === 'New York');
-    console.log('New Yorkers:', newYorkers);
+//     const newYorkers = people1.filter(person => person.city === 'New York');
+//     console.log('New Yorkers:', newYorkers);
     
     
-    const youngNewYorkers = people1.filter(person => person.age < 30 && person.city === 'New York');
-    console.log('Young New Yorkers:', youngNewYorkers);
+//     const youngNewYorkers = people1.filter(person => person.age < 30 && person.city === 'New York');
+//     console.log('Young New Yorkers:', youngNewYorkers);
 
 // --------------Split method---------------
         // --(usage with a String separator)--
-            const str = "Hello,World,JavaScript";
-            const result = str.split(","); 
-            console.log(result); 
+            // const str = "Hello,World,JavaScript";
+            // const result = str.split(","); 
+            // console.log(result); 
         // --(usage space as a separator)--
-            const str1 = "Hello World JavaScript";
-            const result1 = str1.split(" "); 
-            console.log(result1); 
+            // const str1 = "Hello World JavaScript";
+            // const result1 = str1.split(" "); 
+            // console.log(result1); 
         // --(usage regular expression)--
-            const str2 = "one,two;three four";
-            const result2 = str2.split(/[,; ]+/); 
-            console.log(result2); 
+            // const str2 = "one,two;three four";
+            // const result2 = str2.split(/[,; ]+/); 
+            // console.log(result2); 
         
 // --------------Join method--------------------
         //  --(comma separator)--
-            const fruits = ["Apple", "Banana", "Cherry"];
-            const result3 = fruits.join();
-            console.log(result3);
+            // const fruits = ["Apple", "Banana", "Cherry"];
+            // const result3 = fruits.join();
+            // console.log(result3);
         //  --(custom separator)--
-            const fruits1 = ["Apple", "Banana", "Cherry"];
-            const result4 = fruits1.join("-");
-            console.log(result4);
+            // const fruits1 = ["Apple", "Banana", "Cherry"];
+            // const result4 = fruits1.join("-");
+            // console.log(result4);
         //  --(join with a space)--
-            const fruits2 = ["Apple", "Banana", "Cherry"];
-            const result5 = fruits2.join(" ");
-            console.log(result5); 
+            // const fruits2 = ["Apple", "Banana", "Cherry"];
+            // const result5 = fruits2.join(" ");
+            // console.log(result5); 
         //  --(comma separator)--
-            const fruits3 = ["Apple", "Banana", "Cherry"];
-            const result6 = fruits3.join("");
-            console.log(result6);   
+            // const fruits3 = ["Apple", "Banana", "Cherry"];
+            // const result6 = fruits3.join("");
+            // console.log(result6);   
         //  --(comma separator)--
-            const fruits4 = [8,2,5,9];
-            const result7 = fruits4.join(",");
-            console.log(result7);
+            // const fruits4 = [8,2,5,9];
+            // const result7 = fruits4.join(",");
+            // console.log(result7);
+            
+
+//--------------Prototype-------------
+class Animal {
+  constructor(name) {
+      this.name = name;
+  }
+
+  speak() {
+      console.log(`${this.name} makes a noise.`);
+  }
+}
+
+class Dog extends Animal {
+  speak() {
+      console.log(`${this.name} barks.`);
+  }
+}
+
+const dog = new Dog('Rex');
+dog.speak(); 
+
+
+// -------------Destructuring-------------
+const person = { name: "Alice", age: 25 };
+
+const { name, age } = person;
+
+console.log(name);
+console.log(age); 
+        //  -----(Nested object Destructuring)----
+        const person1 = { name: "Alice", address: { city: "Wonderland", zip: "1234" } };
+
+        const { name1, address: { city, zip } } = person1;        
+        console.log(name); 
+        console.log(city);
+        console.log(zip); 
+
+ //------------Meta Characters--------------
+ let regex = /^a.*b$/;  
+ console.log(regex.test('abc'));   
+ console.log(regex.test('a123b')); 
+ console.log(regex.test('ab'));    
+ console.log(regex.test('aab'));   
+
+
+//  ---------------Execution Context-------------
+        //  global execution context
+             var globalVar = "I'm a global variable";
+             
+             function greet() {
+               console.log("Hello, world!");
+             }
+             
+             greet(); 
+             console.log(globalVar);  
+        // function execution content
+             function add(a, b) {
+              var sum = a + b;
+              console.log(sum);
+              return sum;
+            }
+            
+            add(5, 3);  
+        // eval execution content
+            eval('var x = 10;');
+            console.log(x);  
+
+//-------------- Event loop----------------
+console.log('Start');
+
+setTimeout(() => {
+  console.log('Macro: Timeout');
+}, 0);
+
+Promise.resolve().then(() => {
+  console.log('Micro: Promise 1');
+}).then(() => {
+  console.log('Micro: Promise 2');
+});
+
+console.log('End');
+
+
+ 
+
         
