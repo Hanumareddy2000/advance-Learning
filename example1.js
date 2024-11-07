@@ -326,87 +326,181 @@
             
 
 //--------------Prototype-------------
-class Animal {
-  constructor(name) {
-      this.name = name;
-  }
+// class Animal {
+//   constructor(name) {
+//       this.name = name;
+//   }
 
-  speak() {
-      console.log(`${this.name} makes a noise.`);
-  }
-}
+//   speak() {
+//       console.log(`${this.name} makes a noise.`);
+//   }
+// }
 
-class Dog extends Animal {
-  speak() {
-      console.log(`${this.name} barks.`);
-  }
-}
+// class Dog extends Animal {
+//   speak() {
+//       console.log(`${this.name} barks.`);
+//   }
+// }
 
-const dog = new Dog('Rex');
-dog.speak(); 
+// const dog = new Dog('Rex');
+// dog.speak(); 
 
 
 // -------------Destructuring-------------
-const person = { name: "Alice", age: 25 };
+// const person = { name: "Alice", age: 25 };
 
-const { name, age } = person;
+// const { name, age } = person;
 
-console.log(name);
-console.log(age); 
+// console.log(name);
+// console.log(age); 
         //  -----(Nested object Destructuring)----
-        const person1 = { name: "Alice", address: { city: "Wonderland", zip: "1234" } };
+        // const person1 = { name: "Alice", address: { city: "Wonderland", zip: "1234" } };
 
-        const { name1, address: { city, zip } } = person1;        
-        console.log(name); 
-        console.log(city);
-        console.log(zip); 
+        // const { name1, address: { city, zip } } = person1;        
+        // console.log(name); 
+        // console.log(city);
+        // console.log(zip); 
 
  //------------Meta Characters--------------
- let regex = /^a.*b$/;  
- console.log(regex.test('abc'));   
- console.log(regex.test('a123b')); 
- console.log(regex.test('ab'));    
- console.log(regex.test('aab'));   
+//  let regex = /^a.*b$/;  
+//  console.log(regex.test('abc'));   
+//  console.log(regex.test('a123b')); 
+//  console.log(regex.test('ab'));    
+//  console.log(regex.test('aab'));   
 
 
 //  ---------------Execution Context-------------
         //  global execution context
-             var globalVar = "I'm a global variable";
+            //  var globalVar = "I'm a global variable";
              
-             function greet() {
-               console.log("Hello, world!");
-             }
+            //  function greet() {
+            //    console.log("Hello, world!");
+            //  }
              
-             greet(); 
-             console.log(globalVar);  
+            //  greet(); 
+            //  console.log(globalVar);  
         // function execution content
-             function add(a, b) {
-              var sum = a + b;
-              console.log(sum);
-              return sum;
-            }
+            //  function add(a, b) {
+            //   var sum = a + b;
+            //   console.log(sum);
+            //   return sum;
+            // }
             
-            add(5, 3);  
+            // add(5, 3);  
         // eval execution content
-            eval('var x = 10;');
-            console.log(x);  
+            // eval('var x = 10;');
+            // console.log(x);  
 
 //-------------- Event loop----------------
-console.log('Start');
+// console.log('Start');
 
-setTimeout(() => {
-  console.log('Macro: Timeout');
-}, 0);
+// setTimeout(() => {
+//   console.log('Macro: Timeout');
+// }, 0);
 
-Promise.resolve().then(() => {
-  console.log('Micro: Promise 1');
-}).then(() => {
-  console.log('Micro: Promise 2');
-});
+// Promise.resolve().then(() => {
+//   console.log('Micro: Promise 1');
+// }).then(() => {
+//   console.log('Micro: Promise 2');
+// });
 
-console.log('End');
+// console.log('End');
 
 
+// ----------Lexical Scope----------------
+function outer() {
+  let outerVar = "I am from outer";
+
+  function inner() {
+    console.log(outerVar);  
+    }
+
+  return inner; 
+}
+
+const closureFunction = outer();  
+closureFunction();  
+
+
+// ---------------pure function-----------
+function add(a, b) {
+  return a + b;  
+}
+
+console.log(add(2, 3)); 
+console.log(add(2, 3)); 
+
+
+// ----------------impure function-------------
+let count = 0;
+
+function incrementCounter() {
+  count += 1;  
+  return count;
+}
+
+console.log(incrementCounter());  
+console.log(incrementCounter());  
+
+// ----------Currying-------------
+function curriedAdd(a) {
+  return function(b) {
+    return function(c) {
+      return a + b + c;
+    };
+  };
+}
+const add5 = curriedAdd(5);  
+const add5And3 = add5(3);    
+const result = add5And3(2);  
+console.log(result);  
+
+// ---------Object inheritance-------------
+class Vehicle {
+  constructor(type) {
+    this.type = type;
+  }
+
+  drive() {
+    console.log('Driving...');
+  }
+}
+
+class Car extends Vehicle {
+  constructor(type, make) {
+    super(type);  
+    this.make = make;
+  }
+
+  honk() {
+    console.log('Honk honk!');
+  }
+}
+
+const myCar = new Car('Sedan', 'Honda');
+myCar.drive();  
+myCar.honk();   
+
+
+// ----------------Json---------------
+ const badJsonString = '{"name": "Alice", "age": 30';  
+
+ try {
+   const parsedObject = JSON.parse(badJsonString);
+   console.log(parsedObject);
+ } catch (error) {
+   console.log("Error parsing JSON:", error.message);
+ }
  
 
-        
+//  ----------------Recursion---------
+function factorial(n) {
+  
+  if (n <= 1) {
+    return 1;
+  }
+  return n * factorial(n - 1);
+}
+
+console.log(factorial(5));  
+
