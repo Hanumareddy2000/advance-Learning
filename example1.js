@@ -506,75 +506,124 @@
 
 
 // ----------Events----------
-  const button = document.getElementById('myButton');
-  button.addEventListener('click', () => {
-    alert('Button clicked!');
-  });
+  // const button = document.getElementById('myButton');
+  // button.addEventListener('click', () => {
+  //   alert('Button clicked!');
+  // });
 
   // ----------set time out function------------
-  function greet(name) {
-    console.log("Hello, " + name + "!");
-  }
+  // function greet(name) {
+  //   console.log("Hello, " + name + "!");
+  // }
   
-  setTimeout(greet, 2000, "Alice");  
+  // setTimeout(greet, 2000, "Alice");  
   
 
   // ----------MAP-----------
-  let myMap = new Map([
-    ['name', 'Alice'],
-    ['age', 25],
-    ['city', 'New York']
-  ]);
+  // let myMap = new Map([
+  //   ['name', 'Alice'],
+  //   ['age', 25],
+  //   ['city', 'New York']
+  // ]);
 
   
   // ------------Filters-----------
-  const people = [
-    { name: 'Alice', age: 25 },
-    { name: 'Bob', age: 30 },
-    { name: 'Charlie', age: 17 },
-    { name: 'David', age: 21 }
-  ];
+  // const people = [
+  //   { name: 'Alice', age: 25 },
+  //   { name: 'Bob', age: 30 },
+  //   { name: 'Charlie', age: 17 },
+  //   { name: 'David', age: 21 }
+  // ];
   
-  const adults = people.filter(person => person.age >= 18);
+  // const adults = people.filter(person => person.age >= 18);
   
-  console.log(adults);
+  // console.log(adults);
  
 
   // ------------------reduce-------------
-  const numbers = [1, 2, 3, 4, 5];
+//   const numbers = [1, 2, 3, 4, 5];
 
-const sum = numbers.reduce((accumulator, currentValue) => {
-  return accumulator + currentValue;
-}, 0);  
+// const sum = numbers.reduce((accumulator, currentValue) => {
+//   return accumulator + currentValue;
+// }, 0);  
 
-console.log(sum);  
+// console.log(sum);  
 
 
 // ----------------find()---------
-const number = [5, 12, 8, 130, 44];
+// const number = [5, 12, 8, 130, 44];
 
-const firstLargeNumber = number.find(number => number > 10);
+// const firstLargeNumber = number.find(number => number > 10);
 
-console.log(firstLargeNumber); 
+// console.log(firstLargeNumber); 
      
       // -----------every()-----
-      const numbers1 = [2, 4, 6, 8];
+      // const numbers1 = [2, 4, 6, 8];
 
-      const allEven = numbers1.every(number => number % 2 === 0);
+      // const allEven = numbers1.every(number => number % 2 === 0);
       
-      console.log(allEven);  
+      // console.log(allEven);  
       // -------------some()----------
-      const people1 = [
-        { name: 'Alice', age: 30 },
-        { name: 'Bob', age: 20 },
-        { name: 'Charlie', age: 40 }
-      ];
+      // const people1 = [
+      //   { name: 'Alice', age: 30 },
+      //   { name: 'Bob', age: 20 },
+      //   { name: 'Charlie', age: 40 }
+      // ];
       
-      const hasYoungPerson = people1.some(p => p.age < 25);
+      // const hasYoungPerson = people1.some(p => p.age < 25);
       
-      console.log(hasYoungPerson);  
+      // console.log(hasYoungPerson);  
       
       
+// ---------------Spread operator-------------
+const obj1 = { name: "Alice", age: 25 };
+const obj2 = { age: 30, city: "Paris" };
+const mergedObj = { ...obj1, ...obj2 };  
+console.log(mergedObj);  
 
 
+// ---------Default perameters---------
+function logMessage(message = 'Default message', ...otherArgs) {
+  console.log(message);
+  console.log(otherArgs);
+}
+
+logMessage('Hello!', 1, 2, 3);  
+logMessage();                   
   
+
+// --------------forEach()---------
+const numbers = [10, 20, 30, 40];
+
+numbers.forEach(function(num, index, array) {
+  console.log(`Index: ${index}, Value: ${num}, Array: [${array}]`);
+});
+
+
+// -----------------set-------------
+          // ---------using add() method-------------
+          let mySet = new Set();
+          mySet.add(1);
+          mySet.add(2);
+          mySet.add(3);
+          mySet.add(2);  
+          console.log(mySet);  
+
+
+// -------------Objects-------------
+const person = {
+  name: "Alice",
+  age: 30,
+  greet: function() {
+    console.log(`Hello, my name is ${this.name} and I am ${this.age} years old.`);
+  }
+};
+
+person.greet();  
+
+
+// ------------DOM Manipulation------------
+
+  const boxes = document.getElementsByClassName("box");
+  console.log(boxes);  
+
