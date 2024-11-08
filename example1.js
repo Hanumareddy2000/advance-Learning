@@ -408,99 +408,173 @@
 
 
 // ----------Lexical Scope----------------
-function outer() {
-  let outerVar = "I am from outer";
+// function outer() {
+//   let outerVar = "I am from outer";
 
-  function inner() {
-    console.log(outerVar);  
-    }
+//   function inner() {
+//     console.log(outerVar);  
+//     }
 
-  return inner; 
-}
+//   return inner; 
+// }
 
-const closureFunction = outer();  
-closureFunction();  
+// const closureFunction = outer();  
+// closureFunction();  
 
 
 // ---------------pure function-----------
-function add(a, b) {
-  return a + b;  
-}
+// function add(a, b) {
+//   return a + b;  
+// }
 
-console.log(add(2, 3)); 
-console.log(add(2, 3)); 
+// console.log(add(2, 3)); 
+// console.log(add(2, 3)); 
 
 
 // ----------------impure function-------------
-let count = 0;
+// let count = 0;
 
-function incrementCounter() {
-  count += 1;  
-  return count;
-}
+// function incrementCounter() {
+//   count += 1;  
+//   return count;
+// }
 
-console.log(incrementCounter());  
-console.log(incrementCounter());  
+// console.log(incrementCounter());  
+// console.log(incrementCounter());  
 
 // ----------Currying-------------
-function curriedAdd(a) {
-  return function(b) {
-    return function(c) {
-      return a + b + c;
-    };
-  };
-}
-const add5 = curriedAdd(5);  
-const add5And3 = add5(3);    
-const result = add5And3(2);  
-console.log(result);  
+// function curriedAdd(a) {
+//   return function(b) {
+//     return function(c) {
+//       return a + b + c;
+//     };
+//   };
+// }
+// const add5 = curriedAdd(5);  
+// const add5And3 = add5(3);    
+// const result = add5And3(2);  
+// console.log(result);  
 
 // ---------Object inheritance-------------
-class Vehicle {
-  constructor(type) {
-    this.type = type;
-  }
+// class Vehicle {
+//   constructor(type) {
+//     this.type = type;
+//   }
 
-  drive() {
-    console.log('Driving...');
-  }
-}
+//   drive() {
+//     console.log('Driving...');
+//   }
+// }
 
-class Car extends Vehicle {
-  constructor(type, make) {
-    super(type);  
-    this.make = make;
-  }
+// class Car extends Vehicle {
+//   constructor(type, make) {
+//     super(type);  
+//     this.make = make;
+//   }
 
-  honk() {
-    console.log('Honk honk!');
-  }
-}
+//   honk() {
+//     console.log('Honk honk!');
+//   }
+// }
 
-const myCar = new Car('Sedan', 'Honda');
-myCar.drive();  
-myCar.honk();   
+// const myCar = new Car('Sedan', 'Honda');
+// myCar.drive();  
+// myCar.honk();   
 
 
 // ----------------Json---------------
- const badJsonString = '{"name": "Alice", "age": 30';  
+//  const badJsonString = '{"name": "Alice", "age": 30';  
 
- try {
-   const parsedObject = JSON.parse(badJsonString);
-   console.log(parsedObject);
- } catch (error) {
-   console.log("Error parsing JSON:", error.message);
- }
+//  try {
+//    const parsedObject = JSON.parse(badJsonString);
+//    console.log(parsedObject);
+//  } catch (error) {
+//    console.log("Error parsing JSON:", error.message);
+//  }
  
 
 //  ----------------Recursion---------
-function factorial(n) {
+// function factorial(n) {
   
-  if (n <= 1) {
-    return 1;
+//   if (n <= 1) {
+//     return 1;
+//   }
+//   return n * factorial(n - 1);
+// }
+
+// console.log(factorial(5));  
+
+
+// ----------Events----------
+  const button = document.getElementById('myButton');
+  button.addEventListener('click', () => {
+    alert('Button clicked!');
+  });
+
+  // ----------set time out function------------
+  function greet(name) {
+    console.log("Hello, " + name + "!");
   }
-  return n * factorial(n - 1);
-}
+  
+  setTimeout(greet, 2000, "Alice");  
+  
 
-console.log(factorial(5));  
+  // ----------MAP-----------
+  let myMap = new Map([
+    ['name', 'Alice'],
+    ['age', 25],
+    ['city', 'New York']
+  ]);
 
+  
+  // ------------Filters-----------
+  const people = [
+    { name: 'Alice', age: 25 },
+    { name: 'Bob', age: 30 },
+    { name: 'Charlie', age: 17 },
+    { name: 'David', age: 21 }
+  ];
+  
+  const adults = people.filter(person => person.age >= 18);
+  
+  console.log(adults);
+ 
+
+  // ------------------reduce-------------
+  const numbers = [1, 2, 3, 4, 5];
+
+const sum = numbers.reduce((accumulator, currentValue) => {
+  return accumulator + currentValue;
+}, 0);  
+
+console.log(sum);  
+
+
+// ----------------find()---------
+const number = [5, 12, 8, 130, 44];
+
+const firstLargeNumber = number.find(number => number > 10);
+
+console.log(firstLargeNumber); 
+     
+      // -----------every()-----
+      const numbers1 = [2, 4, 6, 8];
+
+      const allEven = numbers1.every(number => number % 2 === 0);
+      
+      console.log(allEven);  
+      // -------------some()----------
+      const people1 = [
+        { name: 'Alice', age: 30 },
+        { name: 'Bob', age: 20 },
+        { name: 'Charlie', age: 40 }
+      ];
+      
+      const hasYoungPerson = people1.some(p => p.age < 25);
+      
+      console.log(hasYoungPerson);  
+      
+      
+
+
+  
