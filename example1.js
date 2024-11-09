@@ -576,54 +576,108 @@
       
       
 // ---------------Spread operator-------------
-const obj1 = { name: "Alice", age: 25 };
-const obj2 = { age: 30, city: "Paris" };
-const mergedObj = { ...obj1, ...obj2 };  
-console.log(mergedObj);  
+// const obj1 = { name: "Alice", age: 25 };
+// const obj2 = { age: 30, city: "Paris" };
+// const mergedObj = { ...obj1, ...obj2 };  
+// console.log(mergedObj);  
 
 
-// ---------Default perameters---------
-function logMessage(message = 'Default message', ...otherArgs) {
-  console.log(message);
-  console.log(otherArgs);
-}
+// ---------Default parameters---------
+// function logMessage(message = 'Default message', ...otherArgs) {
+//   console.log(message);
+//   console.log(otherArgs);
+// }
 
-logMessage('Hello!', 1, 2, 3);  
-logMessage();                   
+// logMessage('Hello!', 1, 2, 3);  
+// logMessage();                   
   
 
 // --------------forEach()---------
-const numbers = [10, 20, 30, 40];
+// const numbers = [10, 20, 30, 40];
 
-numbers.forEach(function(num, index, array) {
-  console.log(`Index: ${index}, Value: ${num}, Array: [${array}]`);
-});
+// numbers.forEach(function(num, index, array) {
+//   console.log(`Index: ${index}, Value: ${num}, Array: [${array}]`);
+// });
 
 
 // -----------------set-------------
           // ---------using add() method-------------
-          let mySet = new Set();
-          mySet.add(1);
-          mySet.add(2);
-          mySet.add(3);
-          mySet.add(2);  
-          console.log(mySet);  
+          // let mySet = new Set();
+          // mySet.add(1);
+          // mySet.add(2);
+          // mySet.add(3);
+          // mySet.add(2);  
+          // console.log(mySet);  
 
 
 // -------------Objects-------------
-const person = {
-  name: "Alice",
-  age: 30,
-  greet: function() {
-    console.log(`Hello, my name is ${this.name} and I am ${this.age} years old.`);
-  }
-};
+// const person = {
+//   name: "Alice",
+//   age: 30,
+//   greet: function() {
+//     console.log(`Hello, my name is ${this.name} and I am ${this.age} years old.`);
+//   }
+// };
 
-person.greet();  
+// person.greet();  
 
 
 // ------------DOM Manipulation------------
 
-  const boxes = document.getElementsByClassName("box");
-  console.log(boxes);  
+  // const boxes = document.getElementsByClassName("box");
+  // console.log(boxes);  
+
+
+  // --------------Type conversion-----------
+  let num = 42;
+let str = num.toString();  
+console.log(str);  
+
+let bool = true;
+let str2 = String(bool);  
+console.log(str2);  
+
+// -------------Arrays--------------
+let fruits = ["apple", "banana", "cherry"];
+fruits[1] = "blueberry";  
+console.log(fruits);  
+
+
+// -------------Data Types------------
+let person = {
+  name: "Alice",
+  age: 30,
+  greet: function() { console.log("Hello!"); }
+};
+
+console.log(person.name);  
+person.greet();            
+
+
+// -------------Default perameters------------
+function calculatePrice(price, taxRate = 0.1) {
+  return price + (price * taxRate);
+}
+
+console.log(calculatePrice(100));      
+console.log(calculatePrice(100, 0.2)); 
+
+// ------------------Foreach()----------
+const fruit = ["apple", "banana", "cherry"];
+
+fruits.forEach(function(fruit) {
+  console.log(fruit);
+});
+
+
+// ------------callback function------------
+function greet(name) {
+  console.log('Hello, ' + name + '!');
+}
+function sayHello(callback) {
+  const name = 'Alice';
+  callback(name);
+}
+sayHello(greet);  
+
 
